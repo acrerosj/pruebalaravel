@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-<h1>Crear un Articulo</h1>
+<h1>Editando el Articulo {{$article->id}}</h1>
 @if ($errors->any())
     <div class="bg-red-600">
         <ul>
@@ -11,13 +11,14 @@
         </ul>
     </div>
 @endif
-<form action="{{route('article.store')}}" method="POST">
+<form action="{{route('article.update', $article)}}" method="POST">
     @csrf
+    @method('PUT')
     <p>
         <label for="">Nombre:</label>
         <input type="text" name="name"
             class="@error('name') border-red-600 @enderror"
-            value="{{ old('name')}}">
+            value="{{ old('name', $article->name) }}">
         @error('name')
             <div class="bg-red-200">
                 {{ $message }}
@@ -27,7 +28,7 @@
     <p>
         <label for="">Precio</label>
         <input type="text" step="0.01" name="price"
-            value="{{ old('price')}}">
+            value="{{ old('price', $article->price)}}">
         @error('price')
         <div class="bg-red-200">
             {{ $message }}
@@ -37,7 +38,7 @@
     <p>
         <label for="">Stock</label>
         <input type="text" name="stock"
-            value="{{ old('stock')}}">
+            value="{{ old('stock', $article->stock)}}">
         @error('stock')
         <div class="bg-red-200">
             {{ $message }}
@@ -45,7 +46,7 @@
     @enderror
     </p>
     <p>
-        <input type="submit" value="Crear Artículo">
+        <input type="submit" value="Modificar Artículo">
     </p>
 </form>
 @endsection

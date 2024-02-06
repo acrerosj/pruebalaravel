@@ -12,6 +12,7 @@
       <th>Nombre</th>
       <th>Precio</th>
       <th>Stock</th>
+      <th></th>
     </tr>
   </thead>
   <tbody>
@@ -25,6 +26,16 @@
         </td>
         <td>{{$article->price}}</td>
         <td>{{$article->stock}}</td>
+        <td>
+            <a href="{{route('article.edit', $article)}}">
+                <button>Editar</button>
+            </a>
+            <form action="{{ route('article.destroy', $article)}}" method="post">
+                @csrf
+                @method('DELETE')
+                <input type="submit" value="Borrar" >
+            </form>
+        </td>
       </tr>
     @endforeach
   </tbody>
