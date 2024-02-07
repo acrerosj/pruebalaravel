@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\CategoryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,3 +27,4 @@ Route::view('/welcome', 'welcome');
 
 //Route::get('/article', [ArticleController::class, 'index']);
 Route::resource('/article', ArticleController::class);
+Route::resource('/category', CategoryController::class);
