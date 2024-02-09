@@ -10,6 +10,7 @@
     <tr>
       <th>id</th>
       <th>Nombre</th>
+      <th>Numero de artículos</th>
       <th></th>
     </tr>
   </thead>
@@ -22,6 +23,7 @@
                 {{$category->name}}
             </a>
         </td>
+        <td>{{$category->articles()->count()}}</td>
         <td>
             <a href="{{route('category.edit', $category)}}">
                 <button>Editar</button>

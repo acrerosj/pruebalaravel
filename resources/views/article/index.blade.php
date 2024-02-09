@@ -10,6 +10,7 @@
     <tr>
       <th>id</th>
       <th>Nombre</th>
+      <th>Categoría</th>
       <th>Precio</th>
       <th>Stock</th>
       <th></th>
@@ -24,6 +25,7 @@
                 {{$article->name}}
             </a>
         </td>
+        <td>{{$article->category()->first()->name}}</td>
         <td>{{$article->price}}</td>
         <td>{{$article->stock}}</td>
         <td>
